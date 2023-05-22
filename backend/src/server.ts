@@ -1,13 +1,18 @@
-import express,{Request, Response } from 'express'
-import cors from 'cors'
+import path from 'path'
+import * as dotenv from 'dotenv'
 
-const app = express()
-const router = express.Router()
+dotenv.config({ path: path.join(__dirname, `./env/${process.env.NODE_ENV}.env`) })
 
-router.get('/', function (req, res) {
-  res.send('All systems operational')
-})
+import app from './app'
+import { mongooseConnection } from './services/db'
 
-app.use(cors())
-app.use(router)
-app.listen(3000, () => console.log('Listening on port 3000'))
+const main = async () => {
+  try {
+    await mongooseConnection()
+    app.listen(5000, () => console.log('Listening on port 5000'))
+  } catch (err) {
+    console.error(err)
+    process.exit(1)
+  }
+}
+main()
