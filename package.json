@@ -4,7 +4,9 @@
   "description": "DuckDuckGo private search engine",
   "main": "index.js",
   "scripts": {
-    "dev:client": "cd frontend && npm start",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "dev:client": "cd frontend && npm run dev",
+    "dev:server": "cd backend && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

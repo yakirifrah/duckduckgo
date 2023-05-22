@@ -1,7 +1,7 @@
 export enum methodRequestType {
-  'POST',
-  'PUT',
-  'GET',
-  'DELETE',
-  'UPDATE',
+  POST = 'POST',
+  PUT = 'PUT',
+  GET = 'GET',
+  DELETE = 'DELETE',
+  UPDATE = 'UPDATE',
 }
