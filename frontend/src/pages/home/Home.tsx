@@ -2,7 +2,6 @@ import AutocompleteComponent from '../../features/autocomplete/Autocomplete'
 import duckduckgo from '../../assets/duckduckgo.svg'
 import {styled} from '@mui/system'
 import HistoryNav from '../../features/historyNav/HistoryNav'
-import {useEffect} from 'react'
 
 const Wrapper = styled('div')({
   display: 'flex',

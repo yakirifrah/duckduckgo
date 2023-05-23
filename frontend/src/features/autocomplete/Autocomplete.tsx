@@ -30,8 +30,7 @@ const MySearchIcon: React.FC<Props> = props => {
       onClick={() => {
         dispatch(resetSuggests())
         if (!anonymousId) {
-          const newAnonymousId =new  ObjectID()
-          console.log({newAnonymousId})
+          const newAnonymousId = new ObjectID().toString()
           localStorage.setItem('anonymousId', newAnonymousId)
           createHistory(newAnonymousId, inputValue)
         } else {
@@ -63,11 +62,13 @@ export default function AutocompleteComponent() {
 
   const [inputValue, setInputValue] = useState(query || '')
   const dispatch = useAppDispatch()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSave = useCallback(
     debounce(inputValue => dispatch(autocompleteAsync(inputValue)), 1500),
     [],
   )
-  const styles = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const styles:any = {
     inputRoot: {
       background: '#333333',
       borderRadius: '24px',
@@ -90,15 +91,16 @@ export default function AutocompleteComponent() {
       fontSize: '14px',
     },
   }
+
   interface IOption {
     title: string
   }
-  function handleOptionClick(option: IOption, _event) {
+  function handleOptionClick(option: IOption) {
     // dispatch(fetchSearchAsync(option.title))
     dispatch(resetSuggests())
     setInputValue(option.title)
     if (!anonymousId) {
-      const newAnonymousId = new ObjectID()
+      const newAnonymousId = new ObjectID().toString()
       localStorage.setItem('anonymousId', newAnonymousId)
       createHistory(newAnonymousId, inputValue)
     } else {
@@ -167,7 +169,7 @@ export default function AutocompleteComponent() {
           const parts = parse(option.title, matches)
 
           return (
-            <li {...props} onClick={event => handleOptionClick(option, event)}>
+            <li {...props} onClick={() => handleOptionClick(option)}>
               <div>
                 {parts.map((part, index) => (
                   <span

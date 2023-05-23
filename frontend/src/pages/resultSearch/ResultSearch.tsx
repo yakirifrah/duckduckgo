@@ -8,7 +8,6 @@ import {useEffect} from 'react'
 import {useLocation, useSearchParams} from 'react-router-dom'
 import {useAppDispatch} from './../../hooks/redux'
 import {fetchSearchAsync} from '../../features/searchResult/searchResultSlice'
-// import useLocalStorage from '../../hooks/useLocalStorage'
 
 export default function ResultSearch() {
   const [searchParams] = useSearchParams()

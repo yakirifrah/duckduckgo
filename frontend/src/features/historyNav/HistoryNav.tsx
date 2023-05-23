@@ -1,4 +1,3 @@
-import {useRef} from 'react'
 import {Drawer, List, ListItem, ListItemIcon, ListItemText} from '@mui/material'
 import InboxIcon from '@mui/icons-material/Inbox'
 import {styled} from '@mui/system'
@@ -9,7 +8,7 @@ import {getHistory} from './historySlice'
 import {Link} from 'react-router-dom'
 import {useInView} from 'react-intersection-observer'
 import {ListSubheader} from '@mui/material'
-import usePrevious from '../../hooks/usePrevious'
+// import usePrevious from '../../hooks/usePrevious'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const DrawerContainer = styled('div')({
   flexShrink: 0,
@@ -22,7 +21,7 @@ const DrawerContainer = styled('div')({
 export default function HistoryNav() {
   const anonymousId = localStorage.getItem('anonymousId')
 
-  const {ref, inView, entry} = useInView({
+  const {ref} = useInView({
     /* Optional options */
     threshold: 0,
   })
@@ -30,7 +29,7 @@ export default function HistoryNav() {
   const {currentPage, loading, history} = useAppSelector(
     (state: RootState) => state.history,
   )
-  const prevCurrentPage = usePrevious(currentPage)
+  // const prevCurrentPage = usePrevious(currentPage)
 
   useEffect(() => {
     if (anonymousId) {
@@ -38,6 +37,7 @@ export default function HistoryNav() {
         getHistory({_id: anonymousId, page: currentPage, pageSize: 5000}),
       )
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, currentPage])
 
   return (
