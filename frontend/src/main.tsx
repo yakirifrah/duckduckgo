@@ -7,8 +7,8 @@ import './App.css'
 import './reset.css'
 import {init} from './utils/api-client.ts'
 import ErrorPage from './pages/error/ErrorPage.tsx'
-import Home from './pages/home/Home.tsx'
-import ResultSearch from './pages/resultSearch/ResultSearch.tsx'
+import Home from './pages/home/HomePage.tsx'
+import ResultSearch from './pages/resultSearch/ResultSearchPage.tsx'
 init()
 const router = createBrowserRouter([
   {

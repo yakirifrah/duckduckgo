@@ -3,10 +3,10 @@ import List from '../../components/List/List'
 import {useAppSelector} from '../../hooks/redux'
 import {RootState} from '../../store'
 import {Container} from './style'
-import AppPagination from './../../components/Pagination/Pagination'
+import AppPagination from '../../components/Pagination/Pagination'
 import {useEffect} from 'react'
 import {useLocation, useSearchParams} from 'react-router-dom'
-import {useAppDispatch} from './../../hooks/redux'
+import {useAppDispatch} from '../../hooks/redux'
 import {fetchSearchAsync} from '../../features/searchResult/searchResultSlice'
 
 export default function ResultSearch() {
