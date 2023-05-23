@@ -8,6 +8,7 @@ export default defineConfig({
     loader: 'tsx',
   },
   root: './',
+  base:"duckduckgo",
   build: {
     outDir: './build',
   },
