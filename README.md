@@ -11,6 +11,7 @@ A web site application based on Duckduckgo
 
 ## Demo
 
+![Animation](https://github.com/yakirifrah/duckduckgo/assets/32233870/dce3a363-519a-4797-b013-cd1c0be000c6)
 
 ## Features
 
