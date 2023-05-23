@@ -18,7 +18,7 @@ export function fetchHistory(_id: string, page: number, limit: number) {
 }
 
 export function createHistory(_id: string, query: string) {
-  const url = `/results?q=${query}`
+  const url = `/result?q=${query}`
   return api.post('/history', {
     _id,
     title: query,
